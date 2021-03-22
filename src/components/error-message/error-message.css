@@ -1,0 +1,11 @@
+.error-message {
+    color: #774023;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.error-message h1 {
+    text-align: center;
+}
