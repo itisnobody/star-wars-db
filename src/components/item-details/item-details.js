@@ -1,52 +1,53 @@
 import React, {Component} from "react";
-import SwapiService from "../../api/swapi-service";
 import ErrorButton from "../errorButton";
 
-export default class PersoneDetails extends Component {
-
-  swapiService = new SwapiService();
-
+export default class ItemDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      person: null
+      item: null,
+      img: null
     };
   }
 
-  // componentDidMount() {
-  //   this.updatePerson();
-  // }
+  componentDidMount() {
+    this.updateItem();
+  }
 
   componentDidUpdate(prevProps) {
-    if (this.props.personId !== prevProps.personId) {
-      this.updatePerson();
+    if (this.props.itemId !== prevProps.itemId) {
+      this.updateItem();
     }
   }
 
-  updatePerson() {
-    const {personId} = this.props;
-    if (!personId) {
+  updateItem() {
+    const {itemId, getData, getImgUrl} = this.props;
+    if (!itemId) {
       return;
     }
 
-    this.swapiService
-      .getPerson(personId)
-      .then((person) => {
-        this.setState({person})
-      })
+    getData(itemId)
+      .then((item) => {
+        this.setState({
+          item,
+          img: getImgUrl(item)
+        });
+      });
   }
 
   render() {
-    if (!this.state.person) {
+    const {item, img} = this.state;
+
+    if (!item) {
       return <span>Select a person from a list</span>
     }
 
-    const {id, name, gender, birthYear, eyeColor} = this.state.person
+    const {name, gender, birthYear, eyeColor} = item;
 
     return (
       <div className={'random-planet jumbotron rounded'}>
         <img className={'planet-img'}
-             src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt=""/>
+             src={img} alt=""/>
         <div>
           <h4>{name}</h4>
           <ul className={'list-group list-group-flush'}>

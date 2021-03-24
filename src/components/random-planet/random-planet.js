@@ -99,4 +99,4 @@ const PlanetView = props => {
       </div>
     </Fragment>
   );
-}
+};
