@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import SwapiService from "../../services/swapi-service";
+import SwapiService from "../../api/swapi-service";
 import ErrorButton from "../errorButton";
 
 export default class PersoneDetails extends Component {
@@ -13,9 +13,9 @@ export default class PersoneDetails extends Component {
     };
   }
 
-  componentDidMount() {
-    // this.updatePerson();
-  }
+  // componentDidMount() {
+  //   this.updatePerson();
+  // }
 
   componentDidUpdate(prevProps) {
     if (this.props.personId !== prevProps.personId) {
