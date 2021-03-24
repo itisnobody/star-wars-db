@@ -3,6 +3,7 @@ import ItemList from "../item-list";
 import PersoneDetails from "../persone-details";
 import ErrorMessage from "../error-message";
 import SwapiService from "../../api/swapi-service";
+import Row from "../row";
 
 export default class PeoplePage extends Component {
   constructor(props) {
@@ -32,18 +33,19 @@ export default class PeoplePage extends Component {
       return <ErrorMessage />;
     }
 
+    const itemList = (
+      <ItemList
+        onItemSelected={this.onItemSelected}
+        getData={this.swapiService.getAllPeople}
+        renderItem={({ name, gender, birthYear }) => `${name} (${gender} ${birthYear})`} />
+    );
+
+    const personDetails = (
+      <PersoneDetails personId={this.state.selectedItem} />
+    );
+
     return (
-      <div className={'row mb-2'}>
-        <div className={'col-md-4'}>
-          <ItemList
-            onItemSelected={this.onItemSelected}
-            getData={this.swapiService.getAllPeople}
-            renderItem={({ name, gender, birthYear }) => `${name} (${gender} ${birthYear})`} />
-        </div>
-        <div className={'col-md-8'}>
-          <PersoneDetails personId={this.state.selectedItem}/>
-        </div>
-      </div>
+      <Row side={itemList} main={personDetails} />
     );
   }
 }
