@@ -37,7 +37,7 @@ export default class SwapiService {
   }
 
   getPlanetImg = ({id}) => {
-    return `${this._imgBase}/planet/${id}.jpg`;
+    return `${this._imgBase}/planets/${id}.jpg`;
   };
 
   getAllStarships = async () => {

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./item-details.css";
 import ErrorButton from "../errorButton";
 
 export default class ItemDetails extends Component {
@@ -42,31 +43,34 @@ export default class ItemDetails extends Component {
       return <span>Select a person from a list</span>
     }
 
-    const {name, gender, birthYear, eyeColor} = item;
-
     return (
       <div className={'random-planet jumbotron rounded'}>
         <img className={'planet-img'}
              src={img} alt=""/>
         <div>
-          <h4>{name}</h4>
+          <h4>{item.name}</h4>
           <ul className={'list-group list-group-flush'}>
-            <li className={'list-group-item'}>
-              <span className={'term'}>Gender</span>
-              <span>{gender}</span>
-            </li>
-            <li className={'list-group-item'}>
-              <span className={'term'}>Birth Year</span>
-              <span>{birthYear}</span>
-            </li>
-            <li className={'list-group-item'}>
-              <span className={'term'}>Eye Color</span>
-              <span>{eyeColor}</span>
-            </li>
+            {
+              React.Children.map(this.props.children, child => {
+                return React.cloneElement(child,{item});
+              })
+            }
           </ul>
         </div>
-        <ErrorButton />
       </div>
     );
   }
+};
+
+const Record = ({ item, field, label }) => {
+  return (
+    <li className={'list-group-item'}>
+      <span className={'term'}>{label}</span>
+      <span>{item[field]}</span>
+    </li>
+  );
+};
+
+export {
+  Record
 };

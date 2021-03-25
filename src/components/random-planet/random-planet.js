@@ -2,7 +2,7 @@ import React, {Component, Fragment} from "react";
 
 import Spinner from "../spinner";
 import ErrorMessage from "../error-message";
-import SwapiService from "../../api/swapi-service";
+import SwapiService from "../api/swapi-service";
 
 export default class RandomPlanet extends Component {
 

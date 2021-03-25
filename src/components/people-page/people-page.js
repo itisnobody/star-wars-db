@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+
 import ItemList from "../item-list";
 import ItemDetails from "../item-details";
-import SwapiService from "../../api/swapi-service";
+import SwapiService from "../api/swapi-service";
 import Row from "../row";
 import ErrorBoundry from "../error-boundry";
 
@@ -47,4 +48,4 @@ export default class PeoplePage extends Component {
       </ErrorBoundry>
     );
   }
-}
+};
