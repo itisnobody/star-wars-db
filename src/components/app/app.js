@@ -4,7 +4,14 @@ import './app.css';
 import Header from "../header";
 import Row from "../row";
 import ErrorBoundry from "../error-boundry";
-import {PersonDetails, PersonList, PlanetDetails, PlanetList, StarshipDetails, StarshipList} from "../sw-components";
+import {
+  PersonDetails,
+  PersonList,
+  PlanetDetails,
+  PlanetList,
+  StarshipDetails,
+  StarshipList
+} from "../sw-components";
 
 export default class App extends Component {
 
@@ -33,17 +40,11 @@ export default class App extends Component {
 
           <StarshipDetails itemId={5} />
 
-          <PersonList>
-            {item => ( `${item.name} (${item.birthYear})` )}
-          </PersonList>
+          <PersonList />
 
-          <PlanetList>
-            {item => ( `${item.name}` )}
-          </PlanetList>
+          <PlanetList />
 
-          <StarshipList>
-            {item => ( `${item.name}`)}
-          </StarshipList>
+          <StarshipList />
         </div>
       </ErrorBoundry>
     );

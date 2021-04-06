@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Spinner from "../spinner";
 import ErrorMessage from "../error-message";
 
-const withData = (View, getData) => {
+const withData = (Wrapped, getData) => {
   return class extends Component {
     constructor(props) {
       super(props);
@@ -28,7 +28,7 @@ const withData = (View, getData) => {
         return <Spinner />;
       }
 
-      return <View {...this.props} data={data}/>;
+      return <Wrapped {...this.props} data={data}/>;
     }
   };
 };
