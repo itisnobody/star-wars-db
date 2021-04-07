@@ -35,9 +35,7 @@ export default class App extends Component {
             <RandomPlanet />
 
             <PeoplePage />
-
             <PlanetsPage />
-
             <StarshipsPage />
           </div>
         </SwapiServiceProvider>
