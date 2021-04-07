@@ -1,12 +1,15 @@
 import React, {Component} from "react";
 
 import "./item-details.css";
-import ErrorButton from "../errorButton";
+import Spinner from "../spinner";
+import ErrorMessage from "../error-message";
 
 export default class ItemDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      error: false,
+      loading: false,
       item: null,
       img: null
     };
@@ -18,12 +21,19 @@ export default class ItemDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.itemId !== prevProps.itemId) {
+
+      this.setState({
+        error: false,
+        loading: true
+      });
+
       this.updateItem();
     }
   }
 
   updateItem() {
     const {itemId, getData, getImgUrl} = this.props;
+
     if (!itemId) {
       return;
     }
@@ -31,17 +41,32 @@ export default class ItemDetails extends Component {
     getData(itemId)
       .then((item) => {
         this.setState({
+          loading: false,
           item,
           img: getImgUrl(item)
+        });
+      })
+      .catch(() => {
+        this.setState({
+          error: true,
+          loading: false
         });
       });
   }
 
   render() {
-    const {item, img} = this.state;
+    const {item, img, loading, error } = this.state;
+
+    if (loading) {
+      return <Spinner />;
+    }
+
+    if (error) {
+      return <ErrorMessage />;
+    }
 
     if (!item) {
-      return <span>Select a person from a list</span>
+      return <span>Select from a list</span>
     }
 
     return (
