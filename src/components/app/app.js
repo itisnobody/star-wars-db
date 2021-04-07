@@ -2,18 +2,11 @@ import React, { Component } from 'react';
 
 import './app.css';
 import Header from "../header";
-import Row from "../row";
+import RandomPlanet from "../random-planet";
+import {PeoplePage, PlanetsPage, StarshipsPage} from "../pages";
 import ErrorBoundry from "../error-boundry";
 import SwapiService from "../api/swapi-service";
 import { SwapiServiceProvider } from "../swapi-service-context";
-import {
-  PersonDetails,
-  PersonList,
-  PlanetDetails,
-  PlanetList,
-  StarshipDetails,
-  StarshipList
-} from "../sw-components";
 
 export default class App extends Component {
 
@@ -39,17 +32,13 @@ export default class App extends Component {
           <div className={'app container'}>
             <Header />
 
-            <PlanetDetails itemId={8} />
+            <RandomPlanet />
 
-            <PersonDetails itemId={11} />
+            <PeoplePage />
 
-            <StarshipDetails itemId={5} />
+            <PlanetsPage />
 
-            <PersonList />
-
-            <PlanetList />
-
-            <StarshipList />
+            <StarshipsPage />
           </div>
         </SwapiServiceProvider>
       </ErrorBoundry>
