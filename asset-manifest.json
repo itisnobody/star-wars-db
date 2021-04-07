@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/git@github.com:itisnobody/star-wars-db.git/static/css/main.c44c8498.chunk.css",
+    "main.js": "/git@github.com:itisnobody/star-wars-db.git/static/js/main.2e28b093.chunk.js",
+    "main.js.map": "/git@github.com:itisnobody/star-wars-db.git/static/js/main.2e28b093.chunk.js.map",
+    "runtime-main.js": "/git@github.com:itisnobody/star-wars-db.git/static/js/runtime-main.11246346.js",
+    "runtime-main.js.map": "/git@github.com:itisnobody/star-wars-db.git/static/js/runtime-main.11246346.js.map",
+    "static/js/2.65cae92e.chunk.js": "/git@github.com:itisnobody/star-wars-db.git/static/js/2.65cae92e.chunk.js",
+    "static/js/2.65cae92e.chunk.js.map": "/git@github.com:itisnobody/star-wars-db.git/static/js/2.65cae92e.chunk.js.map",
+    "index.html": "/git@github.com:itisnobody/star-wars-db.git/index.html",
+    "static/css/main.c44c8498.chunk.css.map": "/git@github.com:itisnobody/star-wars-db.git/static/css/main.c44c8498.chunk.css.map",
+    "static/js/2.65cae92e.chunk.js.LICENSE.txt": "/git@github.com:itisnobody/star-wars-db.git/static/js/2.65cae92e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11246346.js",
+    "static/js/2.65cae92e.chunk.js",
+    "static/css/main.c44c8498.chunk.css",
+    "static/js/main.2e28b093.chunk.js"
+  ]
+}
