@@ -4,6 +4,8 @@ import './app.css';
 import Header from "../header";
 import Row from "../row";
 import ErrorBoundry from "../error-boundry";
+import SwapiService from "../api/swapi-service";
+import { SwapiServiceProvider } from "../swapi-service-context";
 import {
   PersonDetails,
   PersonList,
@@ -22,6 +24,8 @@ export default class App extends Component {
     };
   }
 
+  swapiService = new SwapiService();
+
   onItemSelected = id => {
     this.setState({
       selectedPerson: id
@@ -31,21 +35,23 @@ export default class App extends Component {
   render() {
     return (
       <ErrorBoundry>
-        <div className={'app container'}>
-          <Header />
+        <SwapiServiceProvider value={this.swapiService}>
+          <div className={'app container'}>
+            <Header />
 
-          <PlanetDetails itemId={8} />
+            <PlanetDetails itemId={8} />
 
-          <PersonDetails itemId={11} />
+            <PersonDetails itemId={11} />
 
-          <StarshipDetails itemId={5} />
+            <StarshipDetails itemId={5} />
 
-          <PersonList />
+            <PersonList />
 
-          <PlanetList />
+            <PlanetList />
 
-          <StarshipList />
-        </div>
+            <StarshipList />
+          </div>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }
