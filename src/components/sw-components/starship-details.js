@@ -4,6 +4,7 @@ import { withSwapiService } from "../hoc-helpers";
 import ItemDetails, { Record } from "../item-details";
 
 const StarshipDetails = props => {
+  console.log(props.itemId);
   return (
     <ItemDetails {...props}>
 

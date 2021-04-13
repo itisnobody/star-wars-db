@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import "./item-details.css";
 import Spinner from "../spinner";
@@ -7,9 +7,9 @@ import ErrorMessage from "../error-message";
 
 export default class ItemDetails extends Component {
 
-  static propTypes = {
-    itemId: PropTypes.number
-  };
+  // static propTypes = {
+  //   itemId: PropTypes.number
+  // };
 
   constructor(props) {
     super(props);
