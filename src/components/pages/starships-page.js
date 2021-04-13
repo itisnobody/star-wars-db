@@ -5,13 +5,10 @@ import ErrorBoundry from "../error-boundry";
 import { StarshipList } from "../sw-components";
 
 const StarshipsPage = ({history}) => {
-  console.log(history);
   return (
     <ErrorBoundry>
       <StarshipList
-        onItemSelected={(itemId) => {
-          history.push(`/starships/${itemId}`);
-        }} />
+        onItemSelected={id => history.push(id)} />
     </ErrorBoundry>
   );
 };
