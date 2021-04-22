@@ -11,6 +11,7 @@ const PlanetsPage = ({ history, match }) => {
 
   return (
     <ErrorBoundry>
+      <h2>Planets</h2>
       <Row
         side={<PlanetList onItemSelected={(id) => history.push(id)} />}
         main={<PlanetDetails itemId={id} />} />

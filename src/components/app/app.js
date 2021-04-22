@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Header from "../header";
 import RandomPlanet from "../random-planet";
-import { LoginPage, SecretPage, PeoplePage, PlanetsPage, StarshipsPage } from "../pages";
+import {LoginPage, SecretPage, PeoplePage, PlanetsPage, StarshipsPage, HomePage} from "../pages";
 import ErrorBoundry from "../error-boundry";
 import SwapiService from "../api/swapi-service";
 import { SwapiServiceProvider } from "../swapi-service-context";
@@ -37,20 +37,11 @@ export default class App extends Component {
             <div className={'app container'}>
               <Header />
 
-              <RandomPlanet />
-
               <Switch>
-                <Route path={"/"}
-                       render={()=> <h2>Welcome to Star DB</h2>}
-                       exact />
+                <Route path={"/star-wars-db/"} component={HomePage} exact />
                 <Route path={"/people/:id?"} component={PeoplePage} />
                 <Route path={"/planets/:id?"} component={PlanetsPage} />
-                <Route path={"/starships"} component={StarshipsPage} exact />
-                <Route path={"/starships/:id"}
-                       render={({match})=> {
-                         const {id} = match.params;
-                         return <StarshipDetails itemId={id} />;
-                       }} />
+                <Route path={"/starships/:id?"} component={StarshipsPage} />
                 <Route path={"/login"}
                        render={() => (
                          <LoginPage

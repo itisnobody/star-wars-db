@@ -11,6 +11,7 @@ const PeoplePage = ({ history, match }) => {
 
   return (
     <ErrorBoundry>
+      <h2>People</h2>
       <Row
         side={<PersonList onItemSelected={id => history.push(id)} />}
         main={<PersonDetails itemId={id} />} />

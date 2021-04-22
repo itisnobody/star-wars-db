@@ -1,13 +1,19 @@
-.random-planet {
+.item-detail {
     padding: 1rem;
     min-height: 10rem;
 }
 
-.random-planet .planet-img {
+.item-detail:after {
+    display: block;
+    content: '';
+    clear: left
+}
+
+.item-detail img {
     width: 150px;
-    height: 150px;
     border-right: 10px;
     margin-right: 1rem;
+    float: left;
 }
 
 .random-planet .list-group {

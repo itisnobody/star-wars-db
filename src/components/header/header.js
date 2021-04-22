@@ -6,7 +6,7 @@ export default class Header extends Component {
     return (
       <header className={'header d-flex'}>
         <h3>
-          <Link to={"/"}>Star DB</Link>
+          <Link to={"/star-wars-db/"}>Star DB</Link>
         </h3>
         <ul className={'d-flex'}>
           <li>

@@ -1,16 +1,10 @@
 import React, {Component} from "react";
-// import PropTypes from "prop-types";
 
 import "./item-details.css";
 import Spinner from "../spinner";
 import ErrorMessage from "../error-message";
 
 export default class ItemDetails extends Component {
-
-  // static propTypes = {
-  //   itemId: PropTypes.number
-  // };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -76,9 +70,8 @@ export default class ItemDetails extends Component {
     }
 
     return (
-      <div className={'random-planet jumbotron rounded'}>
-        <img className={'planet-img'}
-             src={img} alt=""/>
+      <div className={'item-detail jumbotron rounded'}>
+        <img src={img} alt=""/>
         <div>
           <h4>{item.name}</h4>
           <ul className={'list-group list-group-flush'}>

@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from "react";
+import React, { Component, Fragment } from "react";
 
 import Spinner from "../spinner";
 import ErrorMessage from "../error-message";
@@ -31,7 +31,6 @@ export default class RandomPlanet extends Component {
       error: false,
       loading: true
     };
-    console.log('Its constructor');
   }
 
   onError = err => {
@@ -42,18 +41,15 @@ export default class RandomPlanet extends Component {
   }
 
   onPlanetLoaded = planet => {
-    // console.log(planet);
-    console.log('Получены данные, меняем состояние');
     this.setState({
       planet,
+      error: false,
       loading: false
     });
   };
 
   updatePlanet = () => {
     const id = Math.floor(Math.random()*10+3);
-    // const id = 177777;
-    console.log('Запрос данных, для обновления планеты');
     this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded)
@@ -61,18 +57,15 @@ export default class RandomPlanet extends Component {
   };
 
   componentDidMount() {
-    console.log('Did Mount');
     this.updatePlanet();
     this.interval = setInterval(this.updatePlanet, this.props.updateInterval);
   }
 
   componentWillUnmount() {
-    console.log('WillUnmount');
     clearInterval(this.interval);
   }
 
   render() {
-    console.log('Render()');
     const { error, loading, planet } = this.state;
 
     const errorMessage = error ? <ErrorMessage /> : null;
